@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_SICF" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <URL>/sap/opu/odata/sap/NPL00125/</URL>
+   <ICFSERVICE>
+    <ICF_NAME>NPL00125</ICF_NAME>
+    <ICF_MANDT>001</ICF_MANDT>
+    <ORIG_NAME>NPL00125</ORIG_NAME>
+    <ICFALTNME>ZTE_FLIGHT_SRV_01</ICFALTNME>
+    <ICFALTNME_ORIG>zte_flight_srv_01</ICFALTNME_ORIG>
+   </ICFSERVICE>
+   <ICFDOCU>
+    <ICF_NAME>NPL00125</ICF_NAME>
+    <ICF_LANGU>E</ICF_LANGU>
+    <ICF_DOCU>ZTE_FLIGHT_SRV_01</ICF_DOCU>
+   </ICFDOCU>
+   <ICFHANDLER_TABLE>
+    <ICFHANDLER>
+     <ICF_NAME>NPL00125</ICF_NAME>
+     <ICFORDER>01</ICFORDER>
+     <ICFTYP>A</ICFTYP>
+     <ICFHANDLER>/IWFND/CL_SODATA_HTTP_HANDLER</ICFHANDLER>
+    </ICFHANDLER>
+   </ICFHANDLER_TABLE>
+  </asx:values>
+ </asx:abap>
+</abapGit>
