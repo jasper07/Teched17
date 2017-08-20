@@ -112,7 +112,7 @@ get_last_modified_rds_4( ).
 *&---------------------------------------------------------------------*
 
 
-  CONSTANTS: lc_gen_date_time TYPE timestamp VALUE '20170815133924'.                  "#EC NOTEXT
+  CONSTANTS: lc_gen_date_time TYPE timestamp VALUE '20170816171648'.                  "#EC NOTEXT
  DATA: lv_rds_last_modified TYPE timestamp .
   rv_last_modified = super->get_last_modified( ).
   IF rv_last_modified LT lc_gen_date_time.
@@ -136,7 +136,7 @@ get_last_modified_rds_4( ).
 *   This code is generated for Reference Data Source
 *   4
 *&---------------------------------------------------------------------*
-    CONSTANTS: co_gen_date_time TYPE timestamp VALUE '20170815143925'.
+    CONSTANTS: co_gen_date_time TYPE timestamp VALUE '20170816091648'.
     TRY.
         rv_last_modified_rds = CAST cl_sadl_gw_model_exposure( if_sadl_gw_model_exposure_data~get_model_exposure( ) )->get_last_modified( ).
       CATCH cx_root.
@@ -191,7 +191,7 @@ get_last_modified_rds_4( ).
                |</sadl:definition>| .
 
     ro_model_exposure = cl_sadl_gw_model_exposure=>get_exposure_xml( iv_uuid      = CONV #( 'ZTE_FLIGHTOVP' )
-                                                                     iv_timestamp = '20170815143925'
+                                                                     iv_timestamp = '20170816091648'
                                                                      iv_sadl_xml  = lv_sadl_xml ).
   endmethod.
 ENDCLASS.

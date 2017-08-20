@@ -1,39 +1,50 @@
-CLASS zcl_te_flightovp_mpc_ext DEFINITION
-  PUBLIC
-  INHERITING FROM zcl_te_flightovp_mpc
-  CREATE PUBLIC .
+class ZCL_TE_FLIGHTOVP_MPC_EXT definition
+  public
+  inheriting from ZCL_TE_FLIGHTOVP_MPC
+  create public .
 
-  PUBLIC SECTION.
+public section.
 
-    METHODS define
-        REDEFINITION .
-  PROTECTED SECTION.
-  PRIVATE SECTION.
-    METHODS create_annotation
-      IMPORTING
-        VALUE(iv_entity_type) TYPE /iwbep/if_mgw_med_odata_types=>ty_e_med_entity_name
-        VALUE(iv_property)    TYPE /iwbep/med_external_name
-      RETURNING
-        VALUE(ro_annotation)  TYPE REF TO /iwbep/if_mgw_odata_annotation .
-    METHODS add_text_property
-      IMPORTING
-        !iv_entity_type   TYPE /iwbep/if_mgw_med_odata_types=>ty_e_med_entity_name
-        !iv_property      TYPE /iwbep/med_external_name
-        !iv_text_property TYPE /iwbep/med_external_name .
-    METHODS add_multi_value_filter
-      IMPORTING
-        !iv_entity_type TYPE /iwbep/if_mgw_med_odata_types=>ty_e_med_entity_name
-        !iv_property    TYPE /iwbep/med_external_name .
-    METHODS add_interval_filter
-      IMPORTING
-        !iv_entity_type TYPE /iwbep/if_mgw_med_odata_types=>ty_e_med_entity_name
-        !iv_property    TYPE /iwbep/med_external_name .
-
+  methods DEFINE
+    redefinition .
+protected section.
+private section.
+  methods CREATE_ANNOTATION
+    importing
+      value(IV_ENTITY_TYPE) type /IWBEP/IF_MGW_MED_ODATA_TYPES=>TY_E_MED_ENTITY_NAME
+      value(IV_PROPERTY) type /IWBEP/MED_EXTERNAL_NAME
+    returning
+      value(RO_ANNOTATION) type ref to /IWBEP/IF_MGW_ODATA_ANNOTATION .
+  methods ADD_TEXT_PROPERTY
+    importing
+      !IV_ENTITY_TYPE type /IWBEP/IF_MGW_MED_ODATA_TYPES=>TY_E_MED_ENTITY_NAME
+      !IV_PROPERTY type /IWBEP/MED_EXTERNAL_NAME
+      !IV_TEXT_PROPERTY type /IWBEP/MED_EXTERNAL_NAME .
+  methods ADD_MULTI_VALUE_FILTER
+    importing
+      !IV_ENTITY_TYPE type /IWBEP/IF_MGW_MED_ODATA_TYPES=>TY_E_MED_ENTITY_NAME
+      !IV_PROPERTY type /IWBEP/MED_EXTERNAL_NAME .
+  methods ADD_INTERVAL_FILTER
+    importing
+      !IV_ENTITY_TYPE type /IWBEP/IF_MGW_MED_ODATA_TYPES=>TY_E_MED_ENTITY_NAME
+      !IV_PROPERTY type /IWBEP/MED_EXTERNAL_NAME .
+  methods ADD_DATE_DISPLAY_FORMAT
+    importing
+      !IV_ENTITY_TYPE type /IWBEP/IF_MGW_MED_ODATA_TYPES=>TY_E_MED_ENTITY_NAME
+      !IV_PROPERTY type /IWBEP/MED_EXTERNAL_NAME .
 ENDCLASS.
 
 
 
 CLASS ZCL_TE_FLIGHTOVP_MPC_EXT IMPLEMENTATION.
+
+
+    METHOD add_date_display_format.
+    create_annotation( iv_entity_type = iv_entity_type iv_property = iv_property )->add(
+    iv_key   = /iwbep/if_ana_odata_types=>gcs_ana_odata_annotation_key-display_format
+    iv_value = /iwbep/if_ana_odata_types=>gcs_ana_odata_annotation_value-common-date
+  ).
+  ENDMETHOD.
 
 
   METHOD add_interval_filter.
@@ -49,7 +60,6 @@ CLASS ZCL_TE_FLIGHTOVP_MPC_EXT IMPLEMENTATION.
 
 
   METHOD add_text_property.
-
     create_annotation( iv_entity_type = iv_entity_type iv_property = iv_property )->add(
           iv_key   = 'text'                                 "#EC NOTEXT
           iv_value = |{ iv_text_property }| ).
@@ -62,8 +72,7 @@ CLASS ZCL_TE_FLIGHTOVP_MPC_EXT IMPLEMENTATION.
   ENDMETHOD.
 
 
-  METHOD define.
-
+  method DEFINE.
 
     super->define( ).
 
@@ -86,7 +95,5 @@ CLASS ZCL_TE_FLIGHTOVP_MPC_EXT IMPLEMENTATION.
 
 
     add_text_property( EXPORTING iv_entity_type = gc_zi_te_airporttype iv_property = 'Airport'  iv_text_property = 'AirportName' ).
-
-
-  ENDMETHOD.
+  endmethod.
 ENDCLASS.

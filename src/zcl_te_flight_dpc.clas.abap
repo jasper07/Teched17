@@ -438,7 +438,7 @@ CLASS ZCL_TE_FLIGHT_DPC IMPLEMENTATION.
   method /IWBEP/IF_MGW_APPL_SRV_RUNTIME~CREATE_ENTITY.
 *&----------------------------------------------------------------------------------------------*
 *&  Include           /IWBEP/DPC_TEMP_CRT_ENTITY_BASE
-*&* This class has been generated on 15.08.2017 19:59:44 in client 001
+*&* This class has been generated on 16.08.2017 19:12:50 in client 001
 *&*
 *&*       WARNING--> NEVER MODIFY THIS CLASS <--WARNING
 *&*   If you want to change the DPC implementation, use the
@@ -589,7 +589,7 @@ ENDCASE.
   method /IWBEP/IF_MGW_APPL_SRV_RUNTIME~DELETE_ENTITY.
 *&----------------------------------------------------------------------------------------------*
 *&  Include           /IWBEP/DPC_TEMP_DEL_ENTITY_BASE
-*&* This class has been generated on 15.08.2017 19:59:44 in client 001
+*&* This class has been generated on 16.08.2017 19:12:50 in client 001
 *&*
 *&*       WARNING--> NEVER MODIFY THIS CLASS <--WARNING
 *&*   If you want to change the DPC implementation, use the
@@ -693,7 +693,7 @@ CASE lv_entityset_name.
   method /IWBEP/IF_MGW_APPL_SRV_RUNTIME~GET_ENTITY.
 *&-----------------------------------------------------------------------------------------------*
 *&  Include           /IWBEP/DPC_TEMP_GETENTITY_BASE
-*&* This class has been generated  on 15.08.2017 19:59:44 in client 001
+*&* This class has been generated  on 16.08.2017 19:12:50 in client 001
 *&*
 *&*       WARNING--> NEVER MODIFY THIS CLASS <--WARNING
 *&*   If you want to change the DPC implementation, use the
@@ -870,7 +870,7 @@ CASE lv_entityset_name.
   method /IWBEP/IF_MGW_APPL_SRV_RUNTIME~GET_ENTITYSET.
 *&----------------------------------------------------------------------------------------------*
 *&  Include           /IWBEP/DPC_TMP_ENTITYSET_BASE
-*&* This class has been generated on 15.08.2017 19:59:44 in client 001
+*&* This class has been generated on 16.08.2017 19:12:50 in client 001
 *&*
 *&*       WARNING--> NEVER MODIFY THIS CLASS <--WARNING
 *&*   If you want to change the DPC implementation, use the
@@ -1092,7 +1092,7 @@ CASE lv_entityset_name.
   method /IWBEP/IF_MGW_APPL_SRV_RUNTIME~UPDATE_ENTITY.
 *&----------------------------------------------------------------------------------------------*
 *&  Include           /IWBEP/DPC_TEMP_UPD_ENTITY_BASE
-*&* This class has been generated on 15.08.2017 19:59:44 in client 001
+*&* This class has been generated on 16.08.2017 19:12:50 in client 001
 *&*
 *&*       WARNING--> NEVER MODIFY THIS CLASS <--WARNING
 *&*   If you want to change the DPC implementation, use the
@@ -1424,7 +1424,7 @@ lo_logger = /iwbep/if_mgw_conv_srv_runtime~get_logger( ).
                |</sadl:resultSet>| &
                |</sadl:definition>| .
     ro_dpc = cl_sadl_gw_dpc_factory=>create_for_sadl( iv_sadl_xml   = lv_sadl_xml
-               iv_timestamp         = '20170815185940'
+               iv_timestamp         = '20170816091248'
                iv_uuid              = 'ZTE_FLIGHT'
                io_context           = me->mo_context ).
   endmethod.

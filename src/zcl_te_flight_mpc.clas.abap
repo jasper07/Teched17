@@ -65,7 +65,7 @@ CLASS ZCL_TE_FLIGHT_MPC IMPLEMENTATION.
 *&                                                                     &*
 *&---------------------------------------------------------------------*
 
-model->set_schema_namespace( 'ZTE_FLIGHT_SRV_01' ).
+model->set_schema_namespace( 'ZTE_FLIGHT_SRV' ).
 
 define_rds_4( ).
 get_last_modified_rds_4( ).
@@ -103,7 +103,7 @@ get_last_modified_rds_4( ).
 *&---------------------------------------------------------------------*
 
 
-  CONSTANTS: lc_gen_date_time TYPE timestamp VALUE '20170815175940'.                  "#EC NOTEXT
+  CONSTANTS: lc_gen_date_time TYPE timestamp VALUE '20170816171248'.                  "#EC NOTEXT
  DATA: lv_rds_last_modified TYPE timestamp .
   rv_last_modified = super->get_last_modified( ).
   IF rv_last_modified LT lc_gen_date_time.
@@ -127,7 +127,7 @@ get_last_modified_rds_4( ).
 *   This code is generated for Reference Data Source
 *   4
 *&---------------------------------------------------------------------*
-    CONSTANTS: co_gen_date_time TYPE timestamp VALUE '20170815185940'.
+    CONSTANTS: co_gen_date_time TYPE timestamp VALUE '20170816091248'.
     TRY.
         rv_last_modified_rds = CAST cl_sadl_gw_model_exposure( if_sadl_gw_model_exposure_data~get_model_exposure( ) )->get_last_modified( ).
       CATCH cx_root.
@@ -177,7 +177,7 @@ get_last_modified_rds_4( ).
                |</sadl:definition>| .
 
     ro_model_exposure = cl_sadl_gw_model_exposure=>get_exposure_xml( iv_uuid      = CONV #( 'ZTE_FLIGHT' )
-                                                                     iv_timestamp = '20170815185940'
+                                                                     iv_timestamp = '20170816091248'
                                                                      iv_sadl_xml  = lv_sadl_xml ).
   endmethod.
 ENDCLASS.
