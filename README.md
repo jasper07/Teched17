@@ -1,5 +1,4 @@
 
-
 # :airplane: Demo Code
 
 ![alt text](img/ovp2.gif "ABAP Git")
@@ -23,6 +22,7 @@ Go into ZABAPGIT and clone this repo
 ![alt text](img/clone_repo.png "Clone Repository")
 
 Create a package for the code
+
 ![alt text](img/create_package.png "Create Package")
 
 Assign a transport
@@ -59,13 +59,16 @@ And assign the Annotation Model  ZTE_FLIGHTOVP_ANNO_MDL to the ZTE_FLIGHT_SRV se
 repeat the steps above for the OVP Service
 
 Create Model ZTE_FLIGHTOVP_MDL
+
 ![alt text](img/create_model2.png "Create Model")
 
 Create the corresponding Service ZTE_FLIGHTOVP_SRV and Assign the above Model ZTE_FLIGHTOVP_MDL to Service
+
 ![alt text](img/create_service2.png "Create Service")
 
 
 Create the Annotation Model ZTE_FLIGHTOVP_ANNO_MDL and assign to the service ZTE_FLIGHTOVP_SRV
+
 ![alt text](img/assign_anno_service2.png "Assign Annotation Model to service")
 
 Activate Services
@@ -98,7 +101,7 @@ Confirm and Upload
 
 repeat for the [ZFLIGHTOVP](https://github.com/jasper07/Teched17/blob/master/ZFLIGHTOVP.zip?raw=true)
 application
-![alt text](img/zflightovp_upload.png "Create new SAPUI5 app")
+![alt text](img/zflightovp_upload.png "Create new SAPUI5 app") 
 
 Confirm and Upload
 ![alt text](img/zflightovp_upload2.png "Confirm and upload")
