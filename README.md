@@ -92,7 +92,10 @@ Confirm by finding Services in list "Service Catalog" list
 Import SAPUI5 applications
 =========
 
-Download and extract the SAPUI5  zipfile [ZFLIGHTLIST](https://github.com/jasper07/Teched17/blob/master/ZFLIGHTLIST.zip?raw=true) to a tmp directory
+The two SAPUI5 applications are zipped up and need to be imported manually
+![alt text](img/zipfiles.png "Location of the SAPUI5 apps")
+
+Download and extract the SAPUI5 zipfile [ZFLIGHTLIST](https://github.com/jasper07/Teched17/blob/master/ZFLIGHTLIST.zip?raw=true) to a tmp directory
 
 call report /UI5/UI5_REPOSITORY_LOAD in SE38 and upload from tmp directory
 ![alt text](img/zflightlist_upload.PNG "Create new SAPUI5 app")
