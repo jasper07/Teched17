@@ -1,0 +1,156 @@
+{
+  "_version": "1.5.0",
+  "sap.app": {
+    "id": "flighttest5",
+    "type": "application",
+    "i18n": "i18n/i18n.properties",
+    "applicationVersion": {
+      "version": "1.0.0"
+    },
+    "title": "{{appTitle}}",
+    "description": "{{appDescription}}",
+    "tags": {
+      "keywords": []
+    },
+    "dataSources": {
+      "mainService": {
+        "uri": "/sap/opu/odata/sap/ZTE_FLIGHT_SRV/",
+        "type": "OData",
+        "settings": {
+          "annotations": [
+            "ZTE_FLIGHT_ANNO_MDL",
+            "localAnnotations"
+          ],
+          "localUri": "localService/metadata.xml"
+        }
+      },
+      "ZTE_FLIGHT_ANNO_MDL": {
+        "uri": "/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Annotations(TechnicalName='ZTE_FLIGHT_ANNO_MDL',Version='0001')/$value/",
+        "type": "ODataAnnotation",
+        "settings": {
+          "localUri": "localService/ZTE_FLIGHT_ANNO_MDL.xml"
+        }
+      },
+      "localAnnotations": {
+        "uri": "annotations/annotations.xml",
+        "type": "ODataAnnotation",
+        "settings": {
+          "localUri": "annotations/annotations.xml"
+        }
+      }
+    },
+    "offline": false,
+    "sourceTemplate": {
+      "id": "ui5template.smartTemplate",
+      "version": "1.40.12"
+    }
+  },
+  "sap.ui": {
+    "technology": "UI5",
+    "icons": {
+      "icon": "",
+      "favIcon": "",
+      "phone": "",
+      "phone@2": "",
+      "tablet": "",
+      "tablet@2": ""
+    },
+    "deviceTypes": {
+      "desktop": true,
+      "tablet": true,
+      "phone": true
+    },
+    "supportedThemes": [
+      "sap_hcb",
+      "sap_belize"
+    ]
+  },
+  "sap.ui5": {
+    "resources": {
+      "js": [],
+      "css": []
+    },
+    "dependencies": {
+      "minUI5Version": "1.32.1",
+      "libs": {
+        "sap.ui.core": {},
+        "sap.m": {},
+        "sap.ui.comp": {},
+        "sap.uxap": {},
+        "sap.suite.ui.generic.template": {},
+        "sap.ui.layout": {},
+        "sap.ushell": {},
+        "sap.collaboration": {}
+      },
+      "components": {}
+    },
+    "models": {
+      "i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "uri": "i18n/i18n.properties"
+      },
+      "@i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "uri": "i18n/i18n.properties"
+      },
+      "i18n|sap.suite.ui.generic.template.ListReport|Zc_Te_Flight": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "uri": "i18n/ListReport/Zc_Te_Flight/i18n.properties"
+      },
+      "i18n|sap.suite.ui.generic.template.ObjectPage|Zc_Te_Flight": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "uri": "i18n/ObjectPage/Zc_Te_Flight/i18n.properties"
+      },
+      "i18n|sap.suite.ui.generic.template.ObjectPage|Zc_Te_Bookings": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "uri": "i18n/ObjectPage/Zc_Te_Bookings/i18n.properties"
+      },
+      "": {
+        "dataSource": "mainService",
+        "settings": {
+          "defaultBindingMode": "TwoWay",
+          "defaultCountMode": "Inline",
+          "refreshAfterChange": false
+        }
+      }
+    },
+    "extends": {
+      "extensions": {}
+    },
+    "contentDensities": {
+      "compact": true,
+      "cozy": true
+    }
+  },
+  "sap.ui.generic.app": {
+    "pages": [
+      {
+        "entitySet": "Zc_Te_Flight",
+        "component": {
+          "name": "sap.suite.ui.generic.template.ListReport",
+          "list": true
+        },
+        "pages": [
+          {
+            "entitySet": "Zc_Te_Flight",
+            "component": {
+              "name": "sap.suite.ui.generic.template.ObjectPage"
+            },
+            "pages": [
+              {
+                "navigationProperty": "to_Bookings",
+                "entitySet": "Zc_Te_Bookings",
+                "component": {
+                  "name": "sap.suite.ui.generic.template.ObjectPage"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "sap.platform.hcp": {
+    "uri": ""
+  }
+}

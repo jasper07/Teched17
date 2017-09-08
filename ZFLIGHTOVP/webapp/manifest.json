@@ -1,0 +1,225 @@
+{
+    "_version": "1.5.0",
+    "start_url": "start.html",
+    "sap.app": {
+        "id": "flightOVP",
+        "type": "application",
+        "i18n": "i18n/i18n.properties",
+        "applicationVersion": {
+            "version": "1.2.2"
+        },
+        "title": "{{app_title}}",
+        "description": "{{app_description}}",
+        "ach": "sap",
+        "resources": "resources.json",
+        "dataSources": {
+            "ZTE_FLIGHTOVP_SRV": {
+                "uri": "/sap/opu/odata/sap/ZTE_FLIGHTOVP_SRV/",
+                "type": "OData",
+                "settings": {
+                    "annotations": [
+                        "ZTE_FLIGHT_OVP_ANNO_MDL",
+                        "annotation1"
+                    ],
+                    "localUri": "localService/ZTE_FLIGHTOVP_SRV/metadata.xml"
+                }
+            },
+            "ZTE_FLIGHT_OVP_ANNO_MDL": {
+                "uri": "/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Annotations(TechnicalName='ZTE_FLIGHTOVP_ANNO_MDL',Version='0001')/$value/",
+                "type": "ODataAnnotation",
+                "settings": {
+                    "localUri": "localService/ZTE_FLIGHTOVP_SRV/ZTE_FLIGHTOVP_ANNO_MDL.xml"
+                }
+            },
+            "annotation1": {
+                "type": "ODataAnnotation",
+                "uri": "annotations/annotation1.xml",
+                "settings": {
+                    "localUri": "annotations/annotation1.xml"
+                }
+            }
+        },
+        "sourceTemplate": {
+            "id": "OVP.cardtemplate",
+            "version": "0.0.0"
+        }
+    },
+    "sap.ui": {
+        "technology": "UI5",
+        "icons": {
+            "icon": ""
+        },
+        "deviceTypes": {
+            "desktop": true,
+            "tablet": true,
+            "phone": true
+        },
+        "supportedThemes": [
+            "sap_hcb",
+            "sap_belize"
+        ]
+    },
+    "sap.ui5": {
+        "dependencies": {
+            "minUI5Version": "1.32.0",
+            "libs": {
+                "sap.ui.core": {},
+                "sap.m": {},
+                "sap.ui.layout": {},
+                "sap.f": {},
+                "sap.ushell": {},
+                "sap.collaboration": {},
+                "sap.ui.comp": {},
+                "sap.uxap": {},
+                "sap.ovp": {}
+            }
+        },
+        "models": {
+            "i18n": {
+                "type": "sap.ui.model.resource.ResourceModel",
+                "uri": "i18n/i18n.properties"
+            },
+            "ZTE_FLIGHTOVP_SRV": {
+                "dataSource": "ZTE_FLIGHTOVP_SRV",
+                "settings": {
+                    "defaultCountMode": "Inline"
+                }
+            },
+            "@i18n": {
+                "type": "sap.ui.model.resource.ResourceModel",
+                "uri": "i18n/i18n.properties"
+            }
+        },
+        "extends": {
+            "extensions": {}
+        },
+        "contentDensities": {
+            "compact": true,
+            "cozy": true
+        }
+    },
+    "sap.ovp": {
+        "globalFilterModel": "ZTE_FLIGHTOVP_SRV",
+        "globalFilterEntityType": "Zc_Te_Flight_FilterType",
+        "cards": {
+            "flightOVP_card00": {
+                "model": "ZTE_FLIGHTOVP_SRV",
+                "template": "sap.ovp.cards.list",
+                "settings": {
+                    "title": "{{flightOVP_card03_title}}",
+                    "subTitle": "{{flightOVP_card03_subTitle}}",
+                    "entitySet": "Zc_Te_Abooking",
+                    "listType": "condensed",
+                    "listFlavor": "bar",
+                    "addODataSelect": "true",
+                    "tabs": [{
+                        "value": "{{CarrierId}}",
+                        "annotationPath": "com.sap.vocabularies.UI.v1.LineItem#Carrier",
+                        "presentationAnnotationPath": "com.sap.vocabularies.UI.v1.PresentationVariant#Carrier",
+                        "identificationAnnotationPath": "com.sap.vocabularies.UI.v1.Identification#Navigate"
+                    }, {
+                        "value": "{{AgencyName}}",
+                        "annotationPath": "com.sap.vocabularies.UI.v1.LineItem#Agency",
+                        "presentationAnnotationPath": "com.sap.vocabularies.UI.v1.PresentationVariant#Agency",
+                        "identificationAnnotationPath": "com.sap.vocabularies.UI.v1.Identification#Navigate"
+                    }]
+                }
+            },
+            "flightOVP_card01": {
+                "model": "ZTE_FLIGHTOVP_SRV",
+                "template": "sap.ovp.cards.stack",
+                "settings": {
+                    "title": "Agencies Open Activities",
+                    "subTitle": "View the open activities for Agencies",
+                    "entitySet": "Zc_Te_Agency",
+                    "addODataSelect": "false",
+                    "annotationPath": "com.sap.vocabularies.UI.v1.LineItem"
+                }
+            },
+            "flightOVP_card02": {
+                "model": "ZTE_FLIGHTOVP_SRV",
+                "template": "sap.ovp.cards.image",
+                "settings": {
+                    "title": "OVP Image",
+                    "entitySet": "Zc_Te_Flight_Filter",
+                    "imageUrl": "img/ovp.jpg"
+                }
+            },
+            "flightOVP_card03": {
+                "model": "ZTE_FLIGHTOVP_SRV",
+                "template": "sap.ovp.cards.list",
+                "settings": {
+                    "title": "Upcoming Flights",
+                    "subTitle": "Number of Passengers",
+                    "entitySet": "Zc_Te_Abooking",
+                    "addODataSelect": "true",
+                    "listType": "extended",
+                    "listFlavor": "bar",
+                    "tabs": [{
+                        "value": "{{CarrierId}}",
+                        "annotationPath": "com.sap.vocabularies.UI.v1.LineItem#CarrierPlus",
+                        "presentationAnnotationPath": "com.sap.vocabularies.UI.v1.PresentationVariant#CarrierPlus"
+                    }, {
+                        "value": "{{AgencyName}}",
+                        "annotationPath": "com.sap.vocabularies.UI.v1.LineItem#AgencyPlus",
+                        "presentationAnnotationPath": "com.sap.vocabularies.UI.v1.PresentationVariant#AgencyPlus"
+                    }]
+                }
+            },
+            "flightOVP_card04": {
+                "model": "ZTE_FLIGHTOVP_SRV",
+                "template": "sap.ovp.cards.charts.analytical",
+                "settings": {
+                    "title": "Passenger Complaints",
+                    "description": "last 365 days",
+                    "entitySet": "Zc_Te_Abooking",
+                    "chartAnnotationPath": "com.sap.vocabularies.UI.v1.Chart#StackedBar",
+                    "identificationAnnotationPath": "com.sap.vocabularies.UI.v1.Identification",
+                    "presentationAnnotationPath": "com.sap.vocabularies.UI.v1.PresentationVariant"
+                }
+            },
+            "flightOVP_card05": {
+                "model": "ZTE_FLIGHTOVP_SRV",
+                "template": "sap.ovp.cards.charts.analytical",
+                "settings": {
+                    "title": "Market Share",
+                    "description": "last 365 days",
+                    "entitySet": "Zc_Te_Abooking",
+                    "chartAnnotationPath": "com.sap.vocabularies.UI.v1.Chart#Donut",
+                    "identificationAnnotationPath": "com.sap.vocabularies.UI.v1.Identification",
+                    "presentationAnnotationPath": "com.sap.vocabularies.UI.v1.PresentationVariant"
+                }
+            },
+            "flightOVP_card06": {
+                "model": "ZTE_FLIGHTOVP_SRV",
+                "template": "sap.ovp.cards.charts.analytical",
+                "settings": {
+                    "title": "Bookings",
+                    "description": "Today",
+                    "entitySet": "Zc_Te_Abooking",
+                    "chartAnnotationPath": "com.sap.vocabularies.UI.v1.Chart#Scatter",
+                    "selectionAnnotationPath": "com.sap.vocabularies.UI.v1.SelectionVariant#TimeLine",
+                    "identificationAnnotationPath": "com.sap.vocabularies.UI.v1.Identification",
+                    "presentationAnnotationPath": "com.sap.vocabularies.UI.v1.PresentationVariant#Scatter"
+                }
+            },
+            "flightOVP_card07": {
+                "model": "ZTE_FLIGHTOVP_SRV",
+                "template": "sap.ovp.cards.charts.analytical",
+                "settings": {
+                    "title": "Consumer Spend Trend",
+                    "subTitle": "For the last 6 months",
+                    "entitySet": "Zc_Te_Abooking",
+                    "selectionAnnotationPath": "com.sap.vocabularies.UI.v1.SelectionVariant#TimeLine",
+                    "chartAnnotationPath": "com.sap.vocabularies.UI.v1.Chart#TimeLine",
+                    "presentationAnnotationPath": "com.sap.vocabularies.UI.v1.PresentationVariant",
+                    "selectionPresentationAnnotationPath": "com.sap.vocabularies.UI.v1.SelectionPresentationVariant#TimeLine",
+                    "dataPointAnnotationPath": "com.sap.vocabularies.UI.v1.DataPoint",
+                    "identificationAnnotationPath": "com.sap.vocabularies.UI.v1.Identification",
+                    "navigation": "dataPointNav"
+                }
+
+            }
+        }
+    }
+}

@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx" Version="4.0">
+  <edmx:Reference Uri="/sap/bc/ui5_ui5/ui2/ushell/resources/sap/ushell/components/factsheet/vocabularies/UI.xml">
+    <edmx:Include Alias="UI" Namespace="com.sap.vocabularies.UI.v1"/>
+  </edmx:Reference>
+  <edmx:Reference Uri="/sap/opu/odata/sap/ZTE_FLIGHT_SRV/$metadata">
+    <edmx:Include Alias="ZTE_FLIGHT_SRV" Namespace="ZTE_FLIGHT_SRV"/>
+  </edmx:Reference>
+  <edmx:DataServices>
+    <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="flighttest5.ZTE_FLIGHT_SRV">
+      <!--===============================================================================
+                Entity Type from chosen collection
+                ================================================================================-->
+            <Annotations Target="ZTE_FLIGHT_SRV.Zc_Te_FlightType">
+        <Annotation Term="UI.Facets">
+          <Collection>
+            <Record Type="UI.CollectionFacet">
+              <PropertyValue Property="ID" String="GeneralInformation"/>
+              <PropertyValue Property="Label" String="{@i18n&gt;@GeneralInfoFacetLabel}"/>
+              <PropertyValue Property="Facets">
+                <Collection>
+                  <Record Type="UI.ReferenceFacet">
+                    <PropertyValue Property="Label" String="{@i18n&gt;@GeneralInfoFacetLabel}"/>
+                    <PropertyValue Property="Target" AnnotationPath="@UI.Identification"/>
+                  </Record>
+                  <Record Type="UI.ReferenceFacet">
+                    <PropertyValue Property="Label" String="{@i18n&gt;@AdditionalInfoFacetLabel}"/>
+                    <PropertyValue Property="Target" AnnotationPath="@UI.FieldGroup#Additional"/>
+                  </Record>
+                </Collection>
+              </PropertyValue>
+            </Record>
+            <Record Type="UI.ReferenceFacet">
+              <PropertyValue Property="Label" String="{@i18n&gt;BOOKINGS}"/>
+              <PropertyValue Property="Target" AnnotationPath="to_Bookings/@UI.LineItem"/>
+            </Record>
+          </Collection>
+        </Annotation>
+        <Annotation Term="UI.DataPoint" Qualifier="ProgressEconomy">
+          <Record Type="UI.DataPointType">
+            <PropertyValue Property="Title" String="{@i18n&gt;ECONOMY_SEATS_OCCUPIED}"/>
+            <PropertyValue Property="TargetValue" Path="seatsmax"/>
+            <PropertyValue Property="Value" Path="seatsocc"/>
+            <PropertyValue Property="Visualization" EnumMember="UI.VisualizationType/Progress"/>
+            <PropertyValue Property="ForecastValue" String=" "/>
+            <PropertyValue Property="Criticality" EnumMember="UI.CriticalityType/Positive"/>
+          </Record>
+          <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/Low"/></Annotation>
+        <Annotation Term="UI.DataPoint" Qualifier="ProgressBusiness">
+          <Record Type="UI.DataPointType">
+            <PropertyValue Property="Title" String="{@i18n&gt;BUSINESS_SEATS_OCCUPIED}"/>
+            <PropertyValue Property="TargetValue" Path="seatsmax_b"/>
+            <PropertyValue Property="Value" Path="seatsocc_b"/>
+            <PropertyValue Property="Visualization" EnumMember="UI.VisualizationType/Progress"/>
+            <PropertyValue Property="Criticality" EnumMember="UI.CriticalityType/Critical"/>
+          </Record>
+        </Annotation>
+        <Annotation Term="UI.DataPoint" Qualifier="ProgressFirst">
+          <Record Type="UI.DataPointType">
+            <PropertyValue Property="Title" String="{@i18n&gt;FIRST_CLASS_SEATS_OCCUPIED}"/>
+            <PropertyValue Property="TargetValue" Path="seatsmax_f"/>
+            <PropertyValue Property="Value" Path="seatsocc_f"/>
+            <PropertyValue Property="Visualization" EnumMember="UI.VisualizationType/Progress"/>
+            <PropertyValue Property="Criticality" EnumMember="UI.CriticalityType/Negative"/>
+          </Record>
+          <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/></Annotation>
+        <Annotation Term="UI.LineItem">
+          <Collection>
+            <Record Type="UI.DataField">
+              <PropertyValue Property="Value" Path="logo"/>
+            </Record>
+            <Record Type="UI.DataField">
+              <PropertyValue Property="Value" Path="ConnectionId"/>
+            </Record>
+            <Record Type="UI.DataField">
+              <PropertyValue Property="Value" Path="AirportFromTo"/>
+              <PropertyValue Property="Label" String="{@i18n&gt;AirportFromTo}"/>
+            </Record>
+            <Record Type="UI.DataField">
+              <PropertyValue Property="Value" Path="TimeFromTo"/>
+              <PropertyValue Property="Label" String="{@i18n&gt;TimeFromTo}"/>
+            </Record>
+            <Record Type="UI.DataField">
+              <PropertyValue Property="Value" Path="FlightDate"/>
+            </Record>
+            <Record Type="UI.DataFieldForAnnotation">
+              <PropertyValue Property="Target" AnnotationPath="@UI.DataPoint#ProgressEconomy"/>
+              <PropertyValue Property="Label" String="Economy"/>
+            </Record>
+            <Record Type="UI.DataFieldForAnnotation">
+              <PropertyValue Property="Target" AnnotationPath="@UI.DataPoint#ProgressBusiness"/>
+              <PropertyValue Property="Label" String="Business Class"/>
+            </Record>
+            <Record Type="UI.DataFieldForAnnotation">
+              <PropertyValue Property="Target" AnnotationPath="@UI.DataPoint#ProgressFirst"/>
+              <PropertyValue Property="Label" String="First Class"/>
+            </Record>
+          </Collection>
+        </Annotation>
+        <Annotation Term="UI.HeaderFacets">
+          <Collection>
+            <Record Type="UI.ReferenceFacet">
+              <PropertyValue Property="Target" AnnotationPath="@UI.FieldGroup#DateTime"/>
+            </Record>
+            <Record Type="UI.ReferenceFacet">
+              <PropertyValue Property="Target" AnnotationPath="@UI.DataPoint#ProgressEconomy"/>
+            </Record>
+            <Record Type="UI.ReferenceFacet">
+              <PropertyValue Property="Target" AnnotationPath="@UI.DataPoint#ProgressBusiness"/>
+            </Record>
+            <Record Type="UI.ReferenceFacet">
+              <PropertyValue Property="Target" AnnotationPath="@UI.DataPoint#ProgressFirst"/>
+            </Record>
+          </Collection>
+        </Annotation>
+        <Annotation Term="UI.HeaderInfo">
+          <Record Type="UI.HeaderInfoType">
+            <PropertyValue Property="Title">
+              <Record Type="UI.DataField">
+                <PropertyValue Property="Value">
+                  <Apply Function="odata.concat">
+                    <Path>CarrierId</Path>
+                    <Path>ConnectionId</Path>
+                  </Apply>
+                </PropertyValue>
+              </Record>
+            </PropertyValue>
+            <PropertyValue Property="TypeName" String="{@i18n&gt;FLIGHT_}"/>
+            <PropertyValue Property="TypeNamePlural" String="{@i18n&gt;FLIGHTS}"/>
+            <PropertyValue Property="Description">
+              <Record Type="UI.DataField">
+                <PropertyValue Property="Value">
+                  <Apply Function="odata.concat">
+                    <Path>CityFrom</Path>
+                    <String>{@i18n&gt;@forwardarrow}</String>
+                    <Path>CityTo</Path>
+                  </Apply>
+                </PropertyValue>
+              </Record>
+            </PropertyValue>
+            <PropertyValue Property="ImageUrl" Path="logo"/>
+          </Record>
+        </Annotation>
+      </Annotations>
+      <!--===============================================================================
+                Entity Type from chosen navigation property
+      ================================================================================-->
+      <Annotations Target="">
+        <Annotation Term="UI.Facets">
+          <Collection>
+            <Record Type="UI.CollectionFacet">
+              <PropertyValue Property="ID" String="GeneralInformation"/>
+              <PropertyValue Property="Label" String="{@i18n&gt;@GeneralInfoFacetLabel}"/>
+              <PropertyValue Property="Facets">
+                <Collection>
+                  <Record Type="UI.ReferenceFacet">
+                    <PropertyValue Property="Label" String="{@i18n&gt;@GeneralInfoFacetLabel}"/>
+                    <PropertyValue Property="Target" AnnotationPath="@UI.Identification"/>
+                  </Record>
+                </Collection>
+              </PropertyValue>
+            </Record>
+          </Collection>
+        </Annotation>
+      </Annotations>
+      <Annotations Target="ZTE_FLIGHT_SRV.Zc_Te_FlightType/logo">
+        <Annotation Term="UI.IsImageURL" Bool="true"/>
+      </Annotations>
+      <!--===============================================================================
+                Entity Type from chosen navigation property
+       ================================================================================-->
+      <Annotations Target="ZTE_FLIGHT_SRV.Zc_Te_BookingsType"/>
+    </Schema>
+  </edmx:DataServices>
+</edmx:Edmx>
