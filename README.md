@@ -70,7 +70,7 @@ Create the corresponding Service ZTE_FLIGHTOVP_SRV and Assign the above Model ZT
 
 Create the Annotation Model ZTE_FLIGHTOVP_ANNO_MDL and assign to the service ZTE_FLIGHTOVP_SRV
 
-![alt text](img/assign_anno_service2.png "Assign Annotation Model to service")
+![alt text](img/assign_anno_service2.PNG "Assign Annotation Model to service")
 
 Activate Services
 =========
@@ -95,21 +95,21 @@ Import SAPUI5 applications
 Download and extract the SAPUI5  zipfile [ZFLIGHTLIST](https://github.com/jasper07/Teched17/blob/master/ZFLIGHTLIST.zip?raw=true) to a tmp directory
 
 call report /UI5/UI5_REPOSITORY_LOAD in SE38 and upload from tmp directory
-![alt text](img/zflightlist_upload.png "Create new SAPUI5 app")
+![alt text](img/zflightlist_upload.PNG "Create new SAPUI5 app")
 
 Confirm and Upload
-![alt text](img/zflightlist_upload2.png "Confirm and Upload")
+![alt text](img/zflightlist_upload2.PNG "Confirm and Upload")
 
 repeat for the [ZFLIGHTOVP](https://github.com/jasper07/Teched17/blob/master/ZFLIGHTOVP.zip?raw=true)
 application
-![alt text](img/zflightovp_upload.png "Create new SAPUI5 app") 
+![alt text](img/zflightovp_upload.PNG "Create new SAPUI5 app") 
 
 Confirm and Upload
-![alt text](img/zflightovp_upload2.png "Confirm and upload")
+![alt text](img/zflightovp_upload2.PNG "Confirm and upload")
 
 now locate and run the ZFLIGHOVP app, should be somewhere like
 http://server:port/sap/bc/ui5_ui5/sap/zflightovp/webapp/index.html?sap-client=001
 
-![alt text](img/run_ovp_app.png "Confirm and upload")
+![alt text](img/run_ovp_app.PNG "Confirm and upload")
 
 ## Enjoy :smiley: :airplane:
