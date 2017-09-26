@@ -115,4 +115,8 @@ http://server:port/sap/bc/ui5_ui5/sap/zflightovp/webapp/index.html?sap-client=00
 
 ![alt text](img/run_ovp_app.PNG "Confirm and upload")
 
+Lastly you may need to create data for the Flight Data Model
+
+Goto Transaction SE38 and run SAPBC_DATA_GENERATOR
+
 ## Enjoy :smiley: :airplane:
