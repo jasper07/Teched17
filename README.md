@@ -50,10 +50,10 @@ Create Model ZTE_FLIGHT_MDL
 Create the corresponding Service  ZTE_FLIGHT_SRV and Assign the above Model to Service
 ![alt text](img/create_service1.png "Create Service")
 
-Create the Annotation Model ZTE_FLIGHTOVP_ANNO_MDL
-![alt text](img/create_anno1.png "Create Annotation Model")
+Create the Annotation Model ZTE_FLIGHT_ANNO_MDL
+![alt text](img/create_anno1a.png "Create Annotation Model")
 
-And assign the Annotation Model  ZTE_FLIGHTOVP_ANNO_MDL to the ZTE_FLIGHT_SRV service
+And assign the Annotation Model  ZTE_FLIGHT_ANNO_MDL to the ZTE_FLIGHT_SRV service
 
 ![alt text](img/assign_anno_service1.PNG "Assign Annotation Model to service")
 
