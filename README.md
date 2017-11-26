@@ -42,33 +42,30 @@ Once all objects are activated you will need to maintain the MPC, DPC and Annota
 
 ![alt text](img/img_gw.png "IMG settings")
 
- 
-
-Create Model ZTE_FLIGHT_MDL
+Create Model **ZTE\_FLIGHT\_MDL** with Model Provider Class **ZCL\_TE\_FLIGHT\_MPC_EXT**
+and Description **Model for Flight CDS**
 ![alt text](img/create_model1.png "Create Model")
 
-Create the corresponding Service  ZTE_FLIGHT_SRV and Assign the above Model to Service
+Create the corresponding Service **ZTE\_FLIGHT\_SRV** with the Description **Service for Flight CDS** and Data Provider Class **ZCL\_TE\_FLIGHT\_DPC\_EXT**. Then assign the above Model to Service.
 ![alt text](img/create_service1.png "Create Service")
 
-Create the Annotation Model ZTE_FLIGHT_ANNO_MDL
+Create the Annotation Model **ZTE\_FLIGHT\_ANNO\_MDL** based on the Annotation Model Provider Class **CL\_SADL\_GW\_CDS\_EXPOSURE\_APC** with the description **Annotation for Flight CDS**
 ![alt text](img/create_anno1a.png "Create Annotation Model")
 
-And assign the Annotation Model  ZTE_FLIGHT_ANNO_MDL to the ZTE_FLIGHT_SRV service
+And assign the Annotation Model **ZTE\_FLIGHT\_ANNO\_MDL** to the **ZTE\_FLIGHT\_SRV** service
 
 ![alt text](img/assign_anno_service1.PNG "Assign Annotation Model to service")
 
 Repeat the same steps above for the OVP Service
 
-Create Model ZTE_FLIGHTOVP_MDL
-
+Create Model ZTE\_FLIGHTOVP\_MDL with Model Provider Class **ZCL\_TE\_FLIGHTOVP\_MPC\_EXT**
+and Description **Model for Flight OVP Service**
 ![alt text](img/create_model2.png "Create Model")
 
-Create the corresponding Service ZTE_FLIGHTOVP_SRV and Assign the above Model ZTE_FLIGHTOVP_MDL to Service
-
+Create the corresponding Service **ZTE\_FLIGHTOVP\_SRV** with the Description **Service for Flight OVP CDS** and Data Provider Class **ZCL\_TE\_FLIGHTOVP\_DPC\_EXT**. Then assign the above Model **ZTE\_FLIGHTOVP\_MDL** to Service.
 ![alt text](img/create_service2.png "Create Service")
 
-
-Create the Annotation Model ZTE_FLIGHTOVP_ANNO_MDL and assign to the service ZTE_FLIGHTOVP_SRV
+Create the Annotation Model **ZTE\_FLIGHTOVP\_ANNO\_MDL**  based on the Annotation Model Provider Class **CL\_SADL\_GW\_CDS\_EXPOSURE\_APC** with the description **Annotation for Flight OVP** and assign to the service **ZTE\_FLIGHTOVP\_SRV**
 
 ![alt text](img/assign_anno_service2.PNG "Assign Annotation Model to service")
 
@@ -79,7 +76,7 @@ Find the "Activate and Maintain Services" entry in the IMG
 
 ![alt text](img/activate_service_img.jpg "locate Activate Service in IMG")
 
-Select the "Add Selected Services" button, locate the 2 "ZTE_FLIGHT*" Services and press "Add Selected Services"
+Select the "Add Selected Services" button, locate the 2 "ZTE\_FLIGHT*" Services and press "Add Selected Services"
 
 ![alt text](img/add_selected_services.png "Add Selected Services")
 
